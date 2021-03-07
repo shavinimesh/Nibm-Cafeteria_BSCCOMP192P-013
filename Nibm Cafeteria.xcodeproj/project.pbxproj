@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C13EA4C8B2966700B319F96 /* Pods_Nibm_Cafeteria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9B9CF6BC300887A5976992 /* Pods_Nibm_Cafeteria.framework */; };
 		5753410B25EDE35000AAB200 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5753410A25EDE34F00AAB200 /* Assets.xcassets */; };
 		5753411025EE60E000AAB200 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5753410F25EE60E000AAB200 /* FoodViewController.swift */; };
 		5753411325EE60F100AAB200 /* MyOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5753411225EE60F100AAB200 /* MyOrderViewController.swift */; };
@@ -32,6 +33,7 @@
 		5777295625E8F25900EA0507 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5777295225E8F25900EA0507 /* Montserrat-SemiBold.ttf */; };
 		5777295725E8F25900EA0507 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5777295325E8F25900EA0507 /* Montserrat-Medium.ttf */; };
 		5777295825E8F25900EA0507 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5777295425E8F25900EA0507 /* Montserrat-Bold.ttf */; };
+		579B9E0A25F4F15B00E3297B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 579B9E0925F4F15B00E3297B /* GoogleService-Info.plist */; };
 		57D880B825EDD73000D41838 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D880B725EDD73000D41838 /* SignUpViewController.swift */; };
 		57D880BB25EDD76000D41838 /* AllowLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D880BA25EDD76000D41838 /* AllowLocationViewController.swift */; };
 		57D880BE25EDD78600D41838 /* FoodDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D880BD25EDD78600D41838 /* FoodDetailsViewController.swift */; };
@@ -65,9 +67,13 @@
 		5777295225E8F25900EA0507 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		5777295325E8F25900EA0507 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		5777295425E8F25900EA0507 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		579B9E0925F4F15B00E3297B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		57D880B725EDD73000D41838 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		57D880BA25EDD76000D41838 /* AllowLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowLocationViewController.swift; sourceTree = "<group>"; };
 		57D880BD25EDD78600D41838 /* FoodDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewController.swift; sourceTree = "<group>"; };
+		6B1CF473D2394A15FCFA00EC /* Pods-Nibm Cafeteria.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nibm Cafeteria.release.xcconfig"; path = "Target Support Files/Pods-Nibm Cafeteria/Pods-Nibm Cafeteria.release.xcconfig"; sourceTree = "<group>"; };
+		8C86CC70CD67BE2C16DEA67E /* Pods-Nibm Cafeteria.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nibm Cafeteria.debug.xcconfig"; path = "Target Support Files/Pods-Nibm Cafeteria/Pods-Nibm Cafeteria.debug.xcconfig"; sourceTree = "<group>"; };
+		DE9B9CF6BC300887A5976992 /* Pods_Nibm_Cafeteria.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nibm_Cafeteria.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C13EA4C8B2966700B319F96 /* Pods_Nibm_Cafeteria.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +218,8 @@
 			children = (
 				5777293925E8E67200EA0507 /* Nibm Cafeteria */,
 				5777293825E8E67200EA0507 /* Products */,
+				D6AE305F6C5538110F2F5C14 /* Pods */,
+				6A3572DC5D092FBF15FBCDDC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -225,6 +234,7 @@
 		5777293925E8E67200EA0507 /* Nibm Cafeteria */ = {
 			isa = PBXGroup;
 			children = (
+				579B9E0925F4F15B00E3297B /* GoogleService-Info.plist */,
 				5753410A25EDE34F00AAB200 /* Assets.xcassets */,
 				5777295025E8F1E000EA0507 /* Fonts */,
 				5777293A25E8E67200EA0507 /* AppDelegate.swift */,
@@ -277,6 +287,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		6A3572DC5D092FBF15FBCDDC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE9B9CF6BC300887A5976992 /* Pods_Nibm_Cafeteria.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D6AE305F6C5538110F2F5C14 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C86CC70CD67BE2C16DEA67E /* Pods-Nibm Cafeteria.debug.xcconfig */,
+				6B1CF473D2394A15FCFA00EC /* Pods-Nibm Cafeteria.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -284,9 +312,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5777294B25E8E67200EA0507 /* Build configuration list for PBXNativeTarget "Nibm Cafeteria" */;
 			buildPhases = (
+				0DF9F6B9218A54E4344BCC3A /* [CP] Check Pods Manifest.lock */,
 				5777293325E8E67200EA0507 /* Sources */,
 				5777293425E8E67200EA0507 /* Frameworks */,
 				5777293525E8E67200EA0507 /* Resources */,
+				365EF4E0D12DFB339C02CBF7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -334,6 +364,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				579B9E0A25F4F15B00E3297B /* GoogleService-Info.plist in Resources */,
 				5777295525E8F25900EA0507 /* Montserrat-Regular.ttf in Resources */,
 				5777294725E8E67200EA0507 /* LaunchScreen.storyboard in Resources */,
 				5761262B25F4AB7900FD98FE /* MyOrderViewCell.xib in Resources */,
@@ -350,6 +381,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0DF9F6B9218A54E4344BCC3A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Nibm Cafeteria-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		365EF4E0D12DFB339C02CBF7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nibm Cafeteria/Pods-Nibm Cafeteria-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nibm Cafeteria/Pods-Nibm Cafeteria-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Nibm Cafeteria/Pods-Nibm Cafeteria-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5777293325E8E67200EA0507 /* Sources */ = {
@@ -515,6 +588,7 @@
 		};
 		5777294C25E8E67200EA0507 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C86CC70CD67BE2C16DEA67E /* Pods-Nibm Cafeteria.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -534,6 +608,7 @@
 		};
 		5777294D25E8E67200EA0507 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B1CF473D2394A15FCFA00EC /* Pods-Nibm Cafeteria.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
