@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FoodItemViewCell: UITableViewCell {
 
@@ -37,19 +38,19 @@ class FoodItemViewCell: UITableViewCell {
     }
     
     func configCell(foodItem: FoodItem) {
-        lblFoodInfo.text = foodItem.foodInfo
+        lblFoodInfo.text = foodItem.foodDescription
         lblFoodName.text = foodItem.foodName
-        imgFoodItem.image = UIImage(named: foodItem.imgFood)
+        imgFoodItem.kf.setImage(with: URL(string: foodItem.foodImgRes))
         lblFoodPrice.text = "RS. \(foodItem.foodPrice)"
         
-        if foodItem.foodDiscount == 0
+        if foodItem.discount == 0
         {
             ViewContainerDiscount.isHidden = true
         }
         else
         {
             ViewContainerDiscount.isHidden = false
-            lblDiscount.text = "\(foodItem.foodDiscount)% OFF"
+            lblDiscount.text = "\(foodItem.discount)% OFF"
         }
     }
     

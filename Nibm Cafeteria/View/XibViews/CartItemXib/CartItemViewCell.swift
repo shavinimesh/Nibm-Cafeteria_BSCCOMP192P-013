@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CartItemViewCell: UITableViewCell {
     @IBOutlet weak var imgFoodItem: UIImageView!
     @IBOutlet weak var lblFoodName: UILabel!
     @IBOutlet weak var lblFoodAmount: UILabel!
-    @IBOutlet weak var btnRemoveQty: UIButton!
     @IBOutlet weak var lblQty: UILabel!
-    @IBOutlet weak var btnAddQty: UIButton!
+    
+    var delegate: CartItemDelegate!
+    var indexPath: IndexPath!
     
     class var reuseIdentifier: String {
         return "FoodCellIdentifier"
@@ -34,11 +36,23 @@ class CartItemViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configCell(foodItem: FoodItem) {
-        lblFoodName.text = foodItem.foodName
-        imgFoodItem.image = UIImage(named: foodItem.imgFood)
-        lblFoodAmount.text = "RS. \(foodItem.foodPrice)"
-        
+    @IBAction func onMinusClicked(_ sender: UIButton) {
+        delegate.onCartItemMinusClick(at: indexPath)
     }
     
+    @IBAction func onAddClicked(_ sender: UIButton) {
+        delegate.onCartItemAddClick(at: indexPath)
+    }
+    
+    func configureCell(cartItem: CartItem) {
+        imgFoodItem.kf.setImage(with: URL(string: cartItem.itemImgRes))
+        lblFoodName.text = cartItem.itemName
+        lblFoodAmount.text = "\(cartItem.itemTotal.lkrString)"
+        lblQty.text = "\(cartItem.itemCount)"
+    }
+}
+
+protocol CartItemDelegate {
+    func onCartItemAddClick(at indexPath: IndexPath)
+    func onCartItemMinusClick(at indexPath: IndexPath)
 }

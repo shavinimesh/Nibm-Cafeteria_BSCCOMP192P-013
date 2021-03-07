@@ -7,53 +7,181 @@
 
 import UIKit
 
-class CartViewController: UIViewController {
+class CartViewController: BaseViewController {
     @IBOutlet weak var tblCartItem: UITableView!
+    @IBOutlet weak var txtTotal: UILabel!
+    @IBOutlet weak var lblItems: UILabel!
     
-    var selectedIndex : Int = 0
+    var totalBill: Double = 0;
     
-    let foodItems : [FoodItem] = [
-        FoodItem(imgFood: "breadWithCheese", foodName: "Bread With Cheese", foodInfo: "half tosted bread with cheese", foodPrice: 250.00, foodDiscount: 5),
-        FoodItem(imgFood: "breadWithEggs", foodName: "Bread With Cheese", foodInfo: "Toasted bread with 2 eggs", foodPrice: 500.00, foodDiscount: 0),
-        FoodItem(imgFood: "breadWithPeanutButter", foodName: "Bread with Peanut Butter", foodInfo: "Toasted Bread with peanut butter", foodPrice: 600.00, foodDiscount: 15),
-        FoodItem(imgFood: "cheeseCake", foodName: "Cheese Cake", foodInfo: "Sweet Cheese Cake", foodPrice: 550.00, foodDiscount: 20),
-        FoodItem(imgFood: "chocalate", foodName: "Chocolate", foodInfo: "Black Chocalate Bar", foodPrice: 250.00, foodDiscount: 0),
-        FoodItem(imgFood: "coffee", foodName: "Black Coffee", foodInfo: "Black Coffee with cookie", foodPrice: 150.00, foodDiscount: 0),
-        FoodItem(imgFood: "cornFlakes", foodName: "Creamy Corn Flakes", foodInfo: "Perfectly boiled corn flakes", foodPrice: 400.00, foodDiscount: 10)
-    ]
+    let realmDB = RealmDB.instance
+    
+    var cartItems: [CartItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tblCartItem.register(UINib(nibName: CartItemViewCell.nibName, bundle: nil), forCellReuseIdentifier: CartItemViewCell.reuseIdentifier)
-        // Do any additional setup after loading the view.
+        networkMonitor.delegate = self
+        firebaseOP.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        refreshCartInfo()
+        networkMonitor.delegate = self
+        firebaseOP.delegate = self
+    }
+    
+    func refreshCartInfo() {
+        cartItems.removeAll()
+        cartItems.append(contentsOf: realmDB.getCartItems())
+        lblItems.text = "\(cartItems.count) Items"
+        totalBill = cartItems.lazy.map {$0.itemTotal}.reduce(0 , +)
+        txtTotal.text = "RS. \(totalBill)"
+    }
+    
+    @IBAction func onCheckoutClicked(_ sender: UIButton) {
         
+        if cartItems.count == 0 {
+            displayErrorMessage(message: "Cart is empty")
+            return
+        }
+        
+        displayOrderConfirmAlert()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func displayOrderConfirmAlert() {
+        displayActionSheet(title: "Confirm Purchase",
+                           message: "You are about to make a purchase or \(totalBill.lkrString), Confirm ?",
+                           positiveTitle: "Yes",
+                           negativeTitle: "Cancel",
+                           positiveHandler: {
+                            action in
+                            self.confirmAndPurchase()
+                           },
+                           negativeHandler: {
+                            action in
+                            self.dismiss(animated: true, completion: nil)
+                           })
     }
-    */
-
+    
+    func confirmAndPurchase() {
+        
+        guard let email = SessionManager.getUserSesion()?.email else {
+            NSLog("The email is empty")
+            displayErrorMessage(message: FieldErrorCaptions.orderPlacingError)
+            return
+        }
+        
+        var orderItems: [OrderItem] = []
+        for item in cartItems {
+            orderItems.append(
+                OrderItem(
+                    foodItem: FoodItem(foodName: item.itemName,
+                                       foodDescription: item.description,
+                                       foodPrice: item.discountedPrice,
+                                       discount: item.discount,
+                                       foodImgRes: item.itemImgRes),
+                    qty: item.itemCount)
+            )
+        }
+        
+        displayProgress()
+        firebaseOP.placeFoodOrder(order: Order(
+                                    orderID: "",
+                                    orderStatusCode: 0,
+                                    orderStatusString: "Pending",
+                                    orderDate: Date(),
+                                    itemCount: cartItems.count,
+                                    orderTotal: totalBill,
+                                    orderItems: orderItems),
+                                  email: email)
+    }
 }
-//UITableView Protocols
 
-extension CartViewController : UITableViewDelegate, UITableViewDataSource {
+extension CartViewController: CartItemDelegate {
+    func onCartItemAddClick(at indexPath: IndexPath) {
+        //        self.cartItems[indexPath.row].itemCount += 1
+        realmDB.updateItemQTY(cartItem: self.cartItems[indexPath.row], increased: true, callback: {
+            result in
+            if result {
+                refreshCartInfo()
+                tblCartItem.reloadRows(at: [indexPath], with: .automatic)
+            } else {
+                displayErrorMessage(message: "Could not update cart item")
+            }
+        })
+    }
+    
+    func onCartItemMinusClick(at indexPath: IndexPath) {
+        if self.cartItems[indexPath.row].itemCount == 1 {
+            return
+        }
+        
+        realmDB.updateItemQTY(cartItem: self.cartItems[indexPath.row], increased: false, callback: {
+            result in
+            if result {
+                refreshCartInfo()
+                tblCartItem.reloadRows(at: [indexPath], with: .automatic)
+            } else {
+                displayErrorMessage(message: "Could not update cart item")
+            }
+        })
+    }
+}
+
+extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foodItems.count
+        return cartItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tblCartItem.dequeueReusableCell(withIdentifier: CartItemViewCell.reuseIdentifier, for: indexPath) as! CartItemViewCell
         cell.selectionStyle = .none
-        cell.configCell(foodItem: foodItems[indexPath.row])
+        cell.indexPath = indexPath
+        cell.delegate = self
+        cell.configureCell(cartItem: cartItems[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Remove"
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            realmDB.deleteFromCart(cartItem: cartItems[indexPath.row], callback: {
+                result in
+                if result {
+                    //                    tableView.deleteRows(at: [indexPath], with: .fade)
+                    refreshCartInfo()
+                    tblCartItem.reloadData()
+                } else {
+                    displayErrorMessage(message: "Could not remove item")
+                }
+            })
+        }
+    }
+}
+
+extension CartViewController : FirebaseActions {
+    func onOrderPlaced() {
+        dismissProgress()
+        displaySuccessMessage(message: "Order placed successfully", completion: {
+            self.dismiss(animated: true, completion: nil)
+        })
+        realmDB.removeAllFromCart(callback: {
+            result in
+            if result {
+                NSLog("Items cleared")
+            } else {
+                NSLog("Unable to clear items")
+            }
+        })
+        refreshCartInfo()
+        tblCartItem.reloadData()
+    }
+    func onOrderPlaceFailedWithError(error: String) {
+        dismissProgress()
+        displayErrorMessage(message: error)
     }
 }

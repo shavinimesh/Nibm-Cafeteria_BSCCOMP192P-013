@@ -61,6 +61,9 @@
                                         <state key="normal" title="-">
                                             <color key="titleColor" name="orange"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onMinusClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="L2u-H4-UZZ"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOi-4i-eIU">
                                         <rect key="frame" x="30" y="0.0" width="30" height="40"/>
@@ -74,6 +77,9 @@
                                         <state key="normal" title="+">
                                             <color key="titleColor" name="orange"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onAddClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Og2-A2-05u"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -113,8 +119,6 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="btnAddQty" destination="GV7-fB-ggy" id="IvV-p4-ILZ"/>
-                <outlet property="btnRemoveQty" destination="lgi-7D-MBk" id="UeT-6u-yRz"/>
                 <outlet property="imgFoodItem" destination="GQw-wR-3ec" id="ovx-bM-5XJ"/>
                 <outlet property="lblFoodAmount" destination="HVq-c0-HBo" id="W3t-O8-xwL"/>
                 <outlet property="lblFoodName" destination="eo3-iv-RbJ" id="8kb-Ms-nQA"/>

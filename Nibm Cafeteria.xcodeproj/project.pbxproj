@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -34,6 +34,25 @@
 		5777295725E8F25900EA0507 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5777295325E8F25900EA0507 /* Montserrat-Medium.ttf */; };
 		5777295825E8F25900EA0507 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5777295425E8F25900EA0507 /* Montserrat-Bold.ttf */; };
 		579B9E0A25F4F15B00E3297B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 579B9E0925F4F15B00E3297B /* GoogleService-Info.plist */; };
+		579B9E3125F4FCB100E3297B /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E3025F4FCB100E3297B /* ResetPasswordViewController.swift */; };
+		579B9E4B25F5002900E3297B /* RealmDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E4A25F5002900E3297B /* RealmDB.swift */; };
+		579B9E5725F50ACF00E3297B /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E4E25F50ACD00E3297B /* SessionManager.swift */; };
+		579B9E5825F50ACF00E3297B /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E4F25F50ACE00E3297B /* DateExtension.swift */; };
+		579B9E5925F50ACF00E3297B /* DoubleUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E5025F50ACE00E3297B /* DoubleUtils.swift */; };
+		579B9E5A25F50ACF00E3297B /* InputFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E5125F50ACE00E3297B /* InputFieldValidator.swift */; };
+		579B9E5B25F50ACF00E3297B /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E5225F50ACE00E3297B /* NetworkMonitor.swift */; };
+		579B9E5C25F50ACF00E3297B /* TextFieldUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E5325F50ACF00E3297B /* TextFieldUtils.swift */; };
+		579B9E5D25F50ACF00E3297B /* PopUpAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E5425F50ACF00E3297B /* PopUpAlerts.swift */; };
+		579B9E5E25F50ACF00E3297B /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E5525F50ACF00E3297B /* DateUtils.swift */; };
+		579B9E5F25F50ACF00E3297B /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E5625F50ACF00E3297B /* ProgressHUD.swift */; };
+		579B9E6A25F50B8C00E3297B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E6625F50B8C00E3297B /* CustomTextField.swift */; };
+		579B9E6B25F50B8C00E3297B /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E6725F50B8C00E3297B /* RoundButton.swift */; };
+		579B9E6C25F50B8C00E3297B /* SpacedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E6825F50B8C00E3297B /* SpacedLabel.swift */; };
+		579B9E6D25F50B8C00E3297B /* RoundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E6925F50B8C00E3297B /* RoundImage.swift */; };
+		579B9E7125F50BB400E3297B /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E7025F50BB400E3297B /* Constraints.swift */; };
+		579B9E7625F50BF300E3297B /* FirebaseOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E7525F50BF300E3297B /* FirebaseOP.swift */; };
+		579B9E7925F50EF800E3297B /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E7825F50EF800E3297B /* SplashViewController.swift */; };
+		579B9E7C25F50FF800E3297B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E7B25F50FF800E3297B /* BaseViewController.swift */; };
 		57D880B825EDD73000D41838 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D880B725EDD73000D41838 /* SignUpViewController.swift */; };
 		57D880BB25EDD76000D41838 /* AllowLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D880BA25EDD76000D41838 /* AllowLocationViewController.swift */; };
 		57D880BE25EDD78600D41838 /* FoodDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D880BD25EDD78600D41838 /* FoodDetailsViewController.swift */; };
@@ -68,6 +87,25 @@
 		5777295325E8F25900EA0507 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		5777295425E8F25900EA0507 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		579B9E0925F4F15B00E3297B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		579B9E3025F4FCB100E3297B /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		579B9E4A25F5002900E3297B /* RealmDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDB.swift; sourceTree = "<group>"; };
+		579B9E4E25F50ACD00E3297B /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		579B9E4F25F50ACE00E3297B /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		579B9E5025F50ACE00E3297B /* DoubleUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleUtils.swift; sourceTree = "<group>"; };
+		579B9E5125F50ACE00E3297B /* InputFieldValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputFieldValidator.swift; sourceTree = "<group>"; };
+		579B9E5225F50ACE00E3297B /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		579B9E5325F50ACF00E3297B /* TextFieldUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldUtils.swift; sourceTree = "<group>"; };
+		579B9E5425F50ACF00E3297B /* PopUpAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpAlerts.swift; sourceTree = "<group>"; };
+		579B9E5525F50ACF00E3297B /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		579B9E5625F50ACF00E3297B /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		579B9E6625F50B8C00E3297B /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		579B9E6725F50B8C00E3297B /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		579B9E6825F50B8C00E3297B /* SpacedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacedLabel.swift; sourceTree = "<group>"; };
+		579B9E6925F50B8C00E3297B /* RoundImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundImage.swift; sourceTree = "<group>"; };
+		579B9E7025F50BB400E3297B /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		579B9E7525F50BF300E3297B /* FirebaseOP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseOP.swift; sourceTree = "<group>"; };
+		579B9E7825F50EF800E3297B /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		579B9E7B25F50FF800E3297B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		57D880B725EDD73000D41838 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		57D880BA25EDD76000D41838 /* AllowLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowLocationViewController.swift; sourceTree = "<group>"; };
 		57D880BD25EDD78600D41838 /* FoodDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewController.swift; sourceTree = "<group>"; };
@@ -174,9 +212,11 @@
 		5761264025F4EBB100FD98FE /* OnBording */ = {
 			isa = PBXGroup;
 			children = (
+				579B9E2F25F4FC9800E3297B /* Resetpassword */,
 				5761264325F4EBF300FD98FE /* Location */,
 				5761264225F4EBD000FD98FE /* Sign UP */,
 				5761264125F4EBC400FD98FE /* Sign In */,
+				579B9E7825F50EF800E3297B /* SplashViewController.swift */,
 			);
 			path = OnBording;
 			sourceTree = "<group>";
@@ -234,6 +274,11 @@
 		5777293925E8E67200EA0507 /* Nibm Cafeteria */ = {
 			isa = PBXGroup;
 			children = (
+				579B9E7425F50BE400E3297B /* Firebase */,
+				579B9E6F25F50B9C00E3297B /* Constraints */,
+				579B9E6525F50B5000E3297B /* VIewExtensions */,
+				579B9E4D25F50A8200E3297B /* Util */,
+				579B9E4925F5000F00E3297B /* Database */,
 				579B9E0925F4F15B00E3297B /* GoogleService-Info.plist */,
 				5753410A25EDE34F00AAB200 /* Assets.xcassets */,
 				5777295025E8F1E000EA0507 /* Fonts */,
@@ -259,6 +304,65 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		579B9E2F25F4FC9800E3297B /* Resetpassword */ = {
+			isa = PBXGroup;
+			children = (
+				579B9E3025F4FCB100E3297B /* ResetPasswordViewController.swift */,
+			);
+			path = Resetpassword;
+			sourceTree = "<group>";
+		};
+		579B9E4925F5000F00E3297B /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				579B9E4A25F5002900E3297B /* RealmDB.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		579B9E4D25F50A8200E3297B /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				579B9E4F25F50ACE00E3297B /* DateExtension.swift */,
+				579B9E5525F50ACF00E3297B /* DateUtils.swift */,
+				579B9E5025F50ACE00E3297B /* DoubleUtils.swift */,
+				579B9E5125F50ACE00E3297B /* InputFieldValidator.swift */,
+				579B9E5225F50ACE00E3297B /* NetworkMonitor.swift */,
+				579B9E5425F50ACF00E3297B /* PopUpAlerts.swift */,
+				579B9E5625F50ACF00E3297B /* ProgressHUD.swift */,
+				579B9E4E25F50ACD00E3297B /* SessionManager.swift */,
+				579B9E5325F50ACF00E3297B /* TextFieldUtils.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		579B9E6525F50B5000E3297B /* VIewExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				579B9E6625F50B8C00E3297B /* CustomTextField.swift */,
+				579B9E6725F50B8C00E3297B /* RoundButton.swift */,
+				579B9E6925F50B8C00E3297B /* RoundImage.swift */,
+				579B9E6825F50B8C00E3297B /* SpacedLabel.swift */,
+			);
+			path = VIewExtensions;
+			sourceTree = "<group>";
+		};
+		579B9E6F25F50B9C00E3297B /* Constraints */ = {
+			isa = PBXGroup;
+			children = (
+				579B9E7025F50BB400E3297B /* Constraints.swift */,
+			);
+			path = Constraints;
+			sourceTree = "<group>";
+		};
+		579B9E7425F50BE400E3297B /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				579B9E7525F50BF300E3297B /* FirebaseOP.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 		57D880B125EDD5FD00D41838 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +370,7 @@
 				5761264025F4EBB100FD98FE /* OnBording */,
 				5761261F25F30D0F00FD98FE /* Cart */,
 				5753410D25EE60A300AAB200 /* Home */,
+				579B9E7B25F50FF800E3297B /* BaseViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -301,7 +406,6 @@
 				8C86CC70CD67BE2C16DEA67E /* Pods-Nibm Cafeteria.debug.xcconfig */,
 				6B1CF473D2394A15FCFA00EC /* Pods-Nibm Cafeteria.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -429,22 +533,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				579B9E6A25F50B8C00E3297B /* CustomTextField.swift in Sources */,
 				5753412025EE6BE500AAB200 /* Models.swift in Sources */,
+				579B9E5C25F50ACF00E3297B /* TextFieldUtils.swift in Sources */,
+				579B9E7925F50EF800E3297B /* SplashViewController.swift in Sources */,
+				579B9E7625F50BF300E3297B /* FirebaseOP.swift in Sources */,
+				579B9E7C25F50FF800E3297B /* BaseViewController.swift in Sources */,
+				579B9E5825F50ACF00E3297B /* DateExtension.swift in Sources */,
+				579B9E7125F50BB400E3297B /* Constraints.swift in Sources */,
+				579B9E5E25F50ACF00E3297B /* DateUtils.swift in Sources */,
 				5777293F25E8E67200EA0507 /* SignInViewController.swift in Sources */,
+				579B9E3125F4FCB100E3297B /* ResetPasswordViewController.swift in Sources */,
+				579B9E5A25F50ACF00E3297B /* InputFieldValidator.swift in Sources */,
+				579B9E5725F50ACF00E3297B /* SessionManager.swift in Sources */,
 				5761262125F30DA300FD98FE /* CartViewController.swift in Sources */,
+				579B9E5925F50ACF00E3297B /* DoubleUtils.swift in Sources */,
 				5753411025EE60E000AAB200 /* FoodViewController.swift in Sources */,
+				579B9E5F25F50ACF00E3297B /* ProgressHUD.swift in Sources */,
+				579B9E5D25F50ACF00E3297B /* PopUpAlerts.swift in Sources */,
 				57D880BB25EDD76000D41838 /* AllowLocationViewController.swift in Sources */,
 				5753411C25EE629C00AAB200 /* FoodItemViewCell.swift in Sources */,
+				579B9E6D25F50B8C00E3297B /* RoundImage.swift in Sources */,
 				5777293B25E8E67200EA0507 /* AppDelegate.swift in Sources */,
 				57D880B825EDD73000D41838 /* SignUpViewController.swift in Sources */,
 				5777293D25E8E67200EA0507 /* SceneDelegate.swift in Sources */,
 				5753411625EE611D00AAB200 /* ProfileViewController.swift in Sources */,
 				57D880BE25EDD78600D41838 /* FoodDetailsViewController.swift in Sources */,
+				579B9E6B25F50B8C00E3297B /* RoundButton.swift in Sources */,
 				5753411325EE60F100AAB200 /* MyOrderViewController.swift in Sources */,
+				579B9E4B25F5002900E3297B /* RealmDB.swift in Sources */,
 				5761261C25F303FC00FD98FE /* CartItemViewCell.swift in Sources */,
 				5761262A25F4AB7900FD98FE /* MyOrderViewCell.swift in Sources */,
+				579B9E6C25F50B8C00E3297B /* SpacedLabel.swift in Sources */,
 				5761263125F4D44F00FD98FE /* orderSummeryViewCell.swift in Sources */,
 				5753412425EE8E5E00AAB200 /* CategoryViewCell.swift in Sources */,
+				579B9E5B25F50ACF00E3297B /* NetworkMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,7 +714,6 @@
 			baseConfigurationReference = 8C86CC70CD67BE2C16DEA67E /* Pods-Nibm Cafeteria.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4U3FUTFJHA;
 				INFOPLIST_FILE = "Nibm Cafeteria/Info.plist";
@@ -611,7 +733,6 @@
 			baseConfigurationReference = 6B1CF473D2394A15FCFA00EC /* Pods-Nibm Cafeteria.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4U3FUTFJHA;
 				INFOPLIST_FILE = "Nibm Cafeteria/Info.plist";

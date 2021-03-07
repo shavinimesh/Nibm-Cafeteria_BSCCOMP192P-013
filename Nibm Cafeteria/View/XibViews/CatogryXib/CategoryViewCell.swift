@@ -25,7 +25,7 @@ class CategoryViewCell: UICollectionViewCell {
         // Initialization code
     }
 
-    func configCell(category: Catogery) {
+    func configCell(category: FoodCategory) {
         lblCategory.text = category.categoryName
         if category.isSelected
         {

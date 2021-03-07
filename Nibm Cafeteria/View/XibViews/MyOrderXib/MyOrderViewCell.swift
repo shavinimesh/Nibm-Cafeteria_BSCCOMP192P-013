@@ -16,11 +16,11 @@ class MyOrderViewCell: UITableViewCell {
     @IBOutlet weak var lblAmount: UILabel!
     
     class var reuseIdentifier: String {
-        return "FoodCellIdentifier"
+        return "OrderCellIdentifier"
     }
     
     class var nibName: String {
-        return "FoodItemViewCell"
+        return "MyOrderViewCell"
     }
     
     override func awakeFromNib() {
@@ -32,6 +32,14 @@ class MyOrderViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configureCell(order: Order) {
+        lblOrdeID.text = order.orderID
+        lblDate.text = DateUtil.getDate(date: order.orderDate)
+        labltemQty.text = "\(order.itemCount) Items"
+        lblStatus.text = order.orderStatusString
+        lblAmount.text = order.orderTotal.lkrString
     }
     
 }

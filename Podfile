@@ -9,5 +9,12 @@ target 'Nibm Cafeteria' do
 
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
+pod 'ListPlaceholder'
+pod 'Kingfisher'
+pod 'SwiftyJSON'
+pod "Connectivity"
+pod 'Loaf'
+pod 'RealmSwift'
+pod 'IQKeyboardManagerSwift'
 
 end
