@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CategopryViewCell" customModule="Nibm_Cafeteria" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="138" height="52"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="138" height="52"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lOs-3Z-mWU">
+                        <rect key="frame" x="0.0" y="0.0" width="138" height="52"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMB-TA-5oX">
+                                <rect key="frame" x="20" y="5" width="98" height="42"/>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="orange"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="PMB-TA-5oX" secondAttribute="bottom" constant="5" id="kBM-bo-dK7"/>
+                            <constraint firstItem="PMB-TA-5oX" firstAttribute="top" secondItem="lOs-3Z-mWU" secondAttribute="top" constant="5" id="lxv-jJ-V9B"/>
+                            <constraint firstItem="PMB-TA-5oX" firstAttribute="leading" secondItem="lOs-3Z-mWU" secondAttribute="leading" constant="20" id="olu-1D-6nD"/>
+                            <constraint firstAttribute="trailing" secondItem="PMB-TA-5oX" secondAttribute="trailing" constant="20" id="yD6-YM-gUy"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="lOs-3Z-mWU" secondAttribute="trailing" id="kDb-0O-IAy"/>
+                <constraint firstItem="lOs-3Z-mWU" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="mej-uj-h6a"/>
+                <constraint firstItem="lOs-3Z-mWU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="o6O-rN-uZa"/>
+                <constraint firstAttribute="bottom" secondItem="lOs-3Z-mWU" secondAttribute="bottom" id="wQw-6H-2hR"/>
+            </constraints>
+            <size key="customSize" width="148" height="56"/>
+            <connections>
+                <outlet property="lblCategory" destination="PMB-TA-5oX" id="Jxa-cl-meV"/>
+                <outlet property="viewContainer" destination="lOs-3Z-mWU" id="56U-Gl-0SQ"/>
+            </connections>
+            <point key="canvasLocation" x="-476.81159420289856" y="67.633928571428569"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="orange">
+            <color red="0.89800000190734863" green="0.31400001049041748" blue="0.22400000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
