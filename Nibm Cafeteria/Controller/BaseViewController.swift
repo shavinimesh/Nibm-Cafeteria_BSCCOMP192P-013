@@ -57,13 +57,11 @@ class BaseViewController: UIViewController, NetworkListener {
     }
     
     func displayActionSheet(title: String, message: String, positiveTitle: String, negativeTitle: String, positiveHandler: @escaping (UIAlertAction) -> Void, negativeHandler: @escaping (UIAlertAction) -> Void) {
-        if alertController == nil {
-            alertController = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
-        }
+        alertController = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
         alertController.title = title
         alertController.message = message
-        alertController.addAction(UIAlertAction(title: positiveTitle, style: .default, handler: positiveHandler))
-        alertController.addAction(UIAlertAction(title: negativeTitle, style: .destructive, handler: negativeHandler))
+        alertController.addAction(UIAlertAction(title: positiveTitle, style: .destructive, handler: positiveHandler))
+        alertController.addAction(UIAlertAction(title: negativeTitle, style: .cancel, handler: negativeHandler))
         self.present(alertController, animated: true, completion: nil)
     }
     

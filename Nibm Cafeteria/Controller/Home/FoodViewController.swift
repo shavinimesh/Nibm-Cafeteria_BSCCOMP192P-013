@@ -39,7 +39,7 @@ class FoodViewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FoodDetailsViewController" {
             let destVC = segue.destination as! FoodDetailsViewController
-            destVC.foodItem = foodItemList[selectedFoodIndex]
+            destVC.foodItem = filteredFood[selectedFoodIndex]
         }
     }
     

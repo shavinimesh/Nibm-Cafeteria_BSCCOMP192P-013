@@ -53,6 +53,8 @@
 		579B9E7625F50BF300E3297B /* FirebaseOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E7525F50BF300E3297B /* FirebaseOP.swift */; };
 		579B9E7925F50EF800E3297B /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E7825F50EF800E3297B /* SplashViewController.swift */; };
 		579B9E7C25F50FF800E3297B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E7B25F50FF800E3297B /* BaseViewController.swift */; };
+		579B9E9925FD02C100E3297B /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E9825FD02C100E3297B /* UpdateProfileViewController.swift */; };
+		579B9E9C25FD039200E3297B /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B9E9B25FD039200E3297B /* ChangePasswordViewController.swift */; };
 		57D880B825EDD73000D41838 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D880B725EDD73000D41838 /* SignUpViewController.swift */; };
 		57D880BB25EDD76000D41838 /* AllowLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D880BA25EDD76000D41838 /* AllowLocationViewController.swift */; };
 		57D880BE25EDD78600D41838 /* FoodDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D880BD25EDD78600D41838 /* FoodDetailsViewController.swift */; };
@@ -106,6 +108,8 @@
 		579B9E7525F50BF300E3297B /* FirebaseOP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseOP.swift; sourceTree = "<group>"; };
 		579B9E7825F50EF800E3297B /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		579B9E7B25F50FF800E3297B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		579B9E9825FD02C100E3297B /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
+		579B9E9B25FD039200E3297B /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		57D880B725EDD73000D41838 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		57D880BA25EDD76000D41838 /* AllowLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowLocationViewController.swift; sourceTree = "<group>"; };
 		57D880BD25EDD78600D41838 /* FoodDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 				5753410F25EE60E000AAB200 /* FoodViewController.swift */,
 				5753411225EE60F100AAB200 /* MyOrderViewController.swift */,
 				5753411525EE611D00AAB200 /* ProfileViewController.swift */,
+				579B9E9825FD02C100E3297B /* UpdateProfileViewController.swift */,
+				579B9E9B25FD039200E3297B /* ChangePasswordViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -545,6 +551,7 @@
 				5777293F25E8E67200EA0507 /* SignInViewController.swift in Sources */,
 				579B9E3125F4FCB100E3297B /* ResetPasswordViewController.swift in Sources */,
 				579B9E5A25F50ACF00E3297B /* InputFieldValidator.swift in Sources */,
+				579B9E9C25FD039200E3297B /* ChangePasswordViewController.swift in Sources */,
 				579B9E5725F50ACF00E3297B /* SessionManager.swift in Sources */,
 				5761262125F30DA300FD98FE /* CartViewController.swift in Sources */,
 				579B9E5925F50ACF00E3297B /* DoubleUtils.swift in Sources */,
@@ -554,6 +561,7 @@
 				57D880BB25EDD76000D41838 /* AllowLocationViewController.swift in Sources */,
 				5753411C25EE629C00AAB200 /* FoodItemViewCell.swift in Sources */,
 				579B9E6D25F50B8C00E3297B /* RoundImage.swift in Sources */,
+				579B9E9925FD02C100E3297B /* UpdateProfileViewController.swift in Sources */,
 				5777293B25E8E67200EA0507 /* AppDelegate.swift in Sources */,
 				57D880B825EDD73000D41838 /* SignUpViewController.swift in Sources */,
 				5777293D25E8E67200EA0507 /* SceneDelegate.swift in Sources */,

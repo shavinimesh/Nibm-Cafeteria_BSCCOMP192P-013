@@ -126,6 +126,20 @@ class ProfileViewController: BaseViewController {
         refreshData()
     }
     
+    @IBAction func OnSignOutPressed(_ sender: UIButton) {
+        displayActionSheet(title: "Sign Out", message: "Are You sure You Want To Sign Out From The Application ?", positiveTitle: "Sign out", negativeTitle: "Cancel", positiveHandler: {
+            action in
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+                SessionManager.clearUserSession()
+                self.performSegue(withIdentifier: "profileToSplashScreen", sender: nil)
+                
+            }
+        }, negativeHandler: {
+            action in
+        })
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -171,7 +185,7 @@ extension ProfileViewController : FirebaseActions {
         txtToDate.text = dateFormatter.string(from: endDate)
         refreshData()
     }
-    func onOrderPlaceFailedWithError(error: String) {
+    func onAllOrdersLoadFailed(error: String) {
         dismissProgress()
         displayErrorMessage(message: error)
     }
