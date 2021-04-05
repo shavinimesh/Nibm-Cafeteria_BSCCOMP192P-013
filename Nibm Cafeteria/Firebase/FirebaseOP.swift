@@ -96,7 +96,7 @@ class FirebaseOP {
     func registerUser(user: User) {
         guard let email = user.email, let password = user.password else {
             NSLog("Empty params found on user instance")
-            self.delegate?.isSignUpFailedWithError(error: FieldErrorCaptions.userRegistrationFailedError)
+            self.delegate?.isSignUpFailedWithError(error: FieldErrorCaptions.userAlreadyExistsError)
             return
         }
         
