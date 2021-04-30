@@ -5,12 +5,6 @@
 //  Created by Nimesh Lakshan on 2021-03-07.
 //
 
-/**
- Utility class to perform the firebase operations such as
- - RealtimeDB Operations
- - Firebase Authentication Operations
- */
-
 import Foundation
 import Firebase
 import FirebaseDatabase
@@ -45,6 +39,12 @@ class FirebaseOP {
         self.getDBReference().child("users").child(email).observeSingleEvent(of: .value, with: {
             snapshot in
             if snapshot.hasChildren() {
+                if let userData = snapshot.value as? [String: Any] {
+                    if userData[UserKeys.type] as? String != "customer" {
+                        completion(false, "User does not exists", snapshot)
+                        return
+                    }
+                }
                 completion(true, "User already exists.", snapshot)
             } else {
                 completion(false, "User does not exists", snapshot)
@@ -77,6 +77,7 @@ class FirebaseOP {
             UserKeys.userName : userName,
             UserKeys.email : email,
             UserKeys.phoneNo : phoneNo,
+            UserKeys.type : "customer"
         ]
         
         self.getDBReference()
@@ -96,14 +97,14 @@ class FirebaseOP {
     func registerUser(user: User) {
         guard let email = user.email, let password = user.password else {
             NSLog("Empty params found on user instance")
-            self.delegate?.isSignUpFailedWithError(error: FieldErrorCaptions.userAlreadyExistsError)
+            self.delegate?.isSignUpFailedWithError(error: FieldErrorCaptions.userRegistrationFailedError)
             return
         }
         
         self.checkExistingUser(email: email, completion: {
             userExistance, result, data in
             if userExistance {
-                self.delegate?.isExisitingUser(error: FieldErrorCaptions.userRegistrationFailedError)
+                self.delegate?.isExisitingUser(error: FieldErrorCaptions.userAlreadyExistsError)
                 return
             }
             
@@ -209,17 +210,23 @@ class FirebaseOP {
                                     NSLog("Could not serialize inner data : foodItems in loop")
                                     continue
                                 }
+                                
+                                if singleFoodItem[FoodKeys.isActive] as? Bool ?? true == false {
+                                    continue
+                                }
+                                
                                 foodItemsList.append(FoodItem(
                                                         foodName: singleFoodItem[FoodKeys.foodName] as! String,
                                                         foodDescription: singleFoodItem[FoodKeys.foodDescription] as! String,
                                                         foodPrice: singleFoodItem[FoodKeys.foodPrice] as! Double,
                                                         discount: singleFoodItem[FoodKeys.discount] as! Int,
                                                         foodImgRes: singleFoodItem[FoodKeys.foodImgRes] as! String,
+                                                        isActive: singleFoodItem[FoodKeys.isActive] as? Bool ?? true,
                                                         foodCategory: singleCategory[FoodKeys.categoryName] as! String))
                             }
                         } else {
                             NSLog("Could not serialize inner data : foodItems")
-                            self.delegate?.onFoodItemsLoadFailed(error: FieldErrorCaptions.foodDataLoadFailed)
+//                            self.delegate?.onFoodItemsLoadFailed(error: FieldErrorCaptions.foodDataLoadFailed)
                         }
                     }
                     //                    let sortedFood = foodItemsList.sorted { $0.foodName < $1.foodName }
@@ -236,7 +243,8 @@ class FirebaseOP {
         })
     }
     
-    func placeFoodOrder(order: Order, email: String) {
+    func placeFoodOrder(order: Order, email: String, customerName: String) {
+        
         
         var foodItems : [String: [String : Any]] = [:]
         for i in 0..<order.orderItems.count {
@@ -254,10 +262,12 @@ class FirebaseOP {
             OrderKeys.itemCount : order.itemCount,
             OrderKeys.orderTotal : order.orderTotal,
             OrderKeys.orderItems : foodItems,
+            OrderKeys.customerName : customerName,
+            OrderKeys.customerEmailEscapedString : email.replacingOccurrences(of: ".", with: "_").replacingOccurrences(of: "@", with: "_")
         ] as [String : Any]
         
         self.getDBReference().child("orders")
-            .child(email.replacingOccurrences(of: ".", with: "_").replacingOccurrences(of: "@", with: "_"))
+//            .child(email.replacingOccurrences(of: ".", with: "_").replacingOccurrences(of: "@", with: "_"))
             .childByAutoId()
             .setValue(data) {
                 (error:Error?, ref:DatabaseReference) in
@@ -272,7 +282,9 @@ class FirebaseOP {
     
     func getAllOrders(email: String) {
         self.getDBReference().child("orders")
-            .child(email.replacingOccurrences(of: ".", with: "_").replacingOccurrences(of: "@", with: "_"))
+            .queryOrdered(byChild: "customerEmail")
+            .queryEqual(toValue: email.replacingOccurrences(of: ".", with: "_").replacingOccurrences(of: "@", with: "_"))
+//            .child(email.replacingOccurrences(of: ".", with: "_").replacingOccurrences(of: "@", with: "_"))
             .observeSingleEvent(of: .value, with: {
                 snapshot in
                 if snapshot.hasChildren() {
@@ -301,7 +313,8 @@ class FirebaseOP {
                                                                                     foodDescription: "",
                                                                                     foodPrice: foodItem[FoodKeys.foodPrice] as! Double,
                                                                                     discount: 0,
-                                                                                    foodImgRes: ""),
+                                                                                    foodImgRes: "",
+                                                                                    isActive: true),
                                                                  qty: foodItem[OrderKeys.itemCount] as! Int))
                                 }
                                 
@@ -331,6 +344,7 @@ class FirebaseOP {
                     }
                     
                 } else {
+                    NSLog("No orders found!")
                     self.delegate?.onAllOrdersLoadFailed(error: FieldErrorCaptions.noOrdersFound)
                 }
             })
@@ -382,6 +396,44 @@ class FirebaseOP {
             })
           }
         }
+    }
+    
+    func checkforPendingOrdersAndUpdate(email: String, lat: Double, lon: Double) {
+        self.getDBReference().child("orders")
+            .queryOrdered(byChild: "customerEmail")
+            .queryEqual(toValue: email.replacingOccurrences(of: ".", with: "_").replacingOccurrences(of: "@", with: "_"))
+            .observeSingleEvent(of: .value, with: {
+                snapshot in
+                if snapshot.hasChildren() {
+                    let locationData = [
+                        "lat" : lat,
+                        "lon" : lon,
+                    ]
+                    if let data = snapshot.value as? [String: Any] {
+                        for singleOrder in data {
+                            
+                            guard let orderData = singleOrder.value as? [String: Any] else {
+                                NSLog("Could not serialize inner data : singleOrder")
+                                continue
+                            }
+                            
+                            if orderData[OrderKeys.orderStatusCode] as? Int == 2 {
+                                print("============= HAS READY ORDERS ===========")
+                                self.getDBReference()
+                                    .child("orders")
+                                    .child(singleOrder.key)
+                                    .child("location")
+                                    .setValue(locationData) {
+                                        (error:Error?, ref:DatabaseReference) in
+                                        if let error = error {
+                                            NSLog(error.localizedDescription)
+                                        }
+                                    }
+                            }
+                        }
+                    }
+                }
+            })
     }
     
 }

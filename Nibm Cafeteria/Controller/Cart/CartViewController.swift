@@ -65,37 +65,38 @@ class CartViewController: BaseViewController {
     }
     
     func confirmAndPurchase() {
-        
-        guard let email = SessionManager.getUserSesion()?.email else {
-            NSLog("The email is empty")
-            displayErrorMessage(message: FieldErrorCaptions.orderPlacingError)
-            return
+            guard let email = SessionManager.getUserSesion()?.email, let name = SessionManager.getUserSesion()?.userName else {
+                NSLog("The email is empty")
+                displayErrorMessage(message: FieldErrorCaptions.orderPlacingError)
+                return
+            }
+            
+            var orderItems: [OrderItem] = []
+            for item in cartItems {
+                orderItems.append(
+                    OrderItem(
+                        foodItem: FoodItem(foodName: item.itemName,
+                                           foodDescription: item.description,
+                                           foodPrice: item.discountedPrice,
+                                           discount: item.discount,
+                                           foodImgRes: item.itemImgRes,
+                                           isActive: true),
+                        qty: item.itemCount)
+                )
+            }
+            
+            displayProgress()
+            firebaseOP.placeFoodOrder(order: Order(
+                                        orderID: "",
+                                        orderStatusCode: OrderStatusInt.ORDER_PENDING,
+                                        orderStatusString: "Pending",
+                                        orderDate: Date(),
+                                        itemCount: cartItems.count,
+                                        orderTotal: totalBill,
+                                        orderItems: orderItems,
+                                        customername: name),
+                                      email: email, customerName: name)
         }
-        
-        var orderItems: [OrderItem] = []
-        for item in cartItems {
-            orderItems.append(
-                OrderItem(
-                    foodItem: FoodItem(foodName: item.itemName,
-                                       foodDescription: item.description,
-                                       foodPrice: item.discountedPrice,
-                                       discount: item.discount,
-                                       foodImgRes: item.itemImgRes),
-                    qty: item.itemCount)
-            )
-        }
-        
-        displayProgress()
-        firebaseOP.placeFoodOrder(order: Order(
-                                    orderID: "",
-                                    orderStatusCode: 0,
-                                    orderStatusString: "Pending",
-                                    orderDate: Date(),
-                                    itemCount: cartItems.count,
-                                    orderTotal: totalBill,
-                                    orderItems: orderItems),
-                                  email: email)
-    }
 }
 
 extension CartViewController: CartItemDelegate {

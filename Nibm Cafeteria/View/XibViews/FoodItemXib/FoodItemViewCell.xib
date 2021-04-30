@@ -115,7 +115,7 @@
                 <outlet property="lblFoodName" destination="l1B-WS-umX" id="3i6-lM-gGE"/>
                 <outlet property="lblFoodPrice" destination="rYI-md-SFY" id="Ukf-rV-CSM"/>
             </connections>
-            <point key="canvasLocation" x="-52.173913043478265" y="145.98214285714286"/>
+            <point key="canvasLocation" x="-339" y="-52"/>
         </tableViewCell>
     </objects>
     <resources>

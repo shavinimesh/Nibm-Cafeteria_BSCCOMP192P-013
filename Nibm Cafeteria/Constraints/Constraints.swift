@@ -60,6 +60,7 @@ class UserKeys {
     class var email : String { return "email" }
     class var phoneNo : String { return "phoneNo" }
     class var password : String { return "password" }
+    class var type : String { return "type" }
 }
 
 class FoodKeys {
@@ -70,6 +71,7 @@ class FoodKeys {
     class var foodImgRes: String { return "foodImgRes" }
     class var foodName: String { return "foodName" }
     class var foodPrice: String { return "foodPrice" }
+    class var isActive: String { return "isActive" }
 }
 
 class OrderKeys {
@@ -80,5 +82,7 @@ class OrderKeys {
     class var itemCount: String { return "itemCount" }
     class var orderTotal: String { return "orderTotal" }
     class var orderItems: String { return "orderItems" }
+    class var customerName: String { return "customerName" }
+    class var customerEmailEscapedString: String { return "customerEmail" }
 }
 
